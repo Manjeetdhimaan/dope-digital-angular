@@ -1,0 +1,50 @@
+<header class="navigation fixed-top">
+    <div class="container">
+        <!-- main nav -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <!-- logo -->
+            <a class="navbar-brand logo" routerLink="">
+                <img class="logo-default" src="assets/images/dope-digital-2.png" alt="logo" />
+                <img class="logo-white" style="height: 3rem;" src="assets/images/dope-digital-white-2.png" alt="logo" />
+            </a>
+            <!-- /logo -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink="/"  (click)="onNavigate('/')">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink="/about"  (click)="onNavigate('/about')">About Us</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink="/blogs"  (click)="onNavigate('/blogs')">Blogs</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink="/clients" (click)="onNavigate('/clients')">Clients</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Services
+        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/services" (click)="onNavigate('/services')">Our Services</a>
+                            <a class="dropdown-item" routerLink="/web-design" (click)="onNavigate('/web-design')">Web Designing</a>
+                            <a class="dropdown-item" routerLink="/seo" (click)="onNavigate('/seo')">Search Engine Optimization</a>
+                            <a class="dropdown-item" routerLink="/social-media-management" (click)="onNavigate('/social-media-management')">Social Media Management</a>
+                            <a class="dropdown-item" routerLink="/youtube-marketing" (click)="onNavigate('/youtube-marketing')">You Tube Marketing</a>
+                            <a class="dropdown-item" routerLink="/paid-Ad-management" (click)="onNavigate('/paid-Ad-management')">Paid Ad Management</a>
+                            <a class="dropdown-item" routerLink="/logo-design" (click)="onNavigate('/logo-design')">Logo and Graphic Design</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink="/contact"  (click)="onNavigate('/contact')">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /main nav -->
+    </div>
+</header>
