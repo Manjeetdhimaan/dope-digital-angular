@@ -46,7 +46,7 @@ const routes: Routes = [
     path: 'clients', component: ClientsComponent, data: {title: 'CLIENTS - Dope Digital'}
   },
   {
-    path: 'contact', component: ContactComponent, data: {title: 'CLIENTS - Dope Digital'}
+    path: 'contact', component: ContactComponent, data: {title: 'CONTACT - Dope Digital'}
   },
   {
     path: 'blogs', component: BlogsHeadlineComponent,data: {title: 'BLOGS - Dope Digital'}

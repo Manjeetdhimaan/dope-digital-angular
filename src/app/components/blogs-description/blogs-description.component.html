@@ -20,11 +20,12 @@
       <div class="col-lg-8">
         <article class="post">
           <div class="post-image">
+            <h3 class="bold-text">{{ blog.title }}.</h3>
             <img class="img-fluid w-100" [src]="blog.imgSrc" [alt]="blog.title">
           </div>
           <!-- Post Content -->
           <div class="post-content">
-            <h3>{{ blog.title }}.</h3>
+            
             <!-- <ul class="list-inline">
               <li class="list-inline-item">
                 <a href="#">Admin</a>&nbsp;/
@@ -43,26 +44,38 @@
         </article>
         <article class="post">
           <div class="post-content">
-            <h3>{{ blog.subTitles[0] }}.</h3>
+            <h2 class="boldH2">{{ blog.subTitles[0] }}</h2>
            
             <div *ngFor="let fact of blog.subTitleFacts">
                 <p [innerHTML]="fact.fact"></p>
             </div>
+            <h2 class="boldH2" *ngIf="blog.subTitles[1]">{{ blog.subTitles[1] }}</h2>
+
+            <div *ngFor="let fact of blog.subTitleFactTitles">
+              <p [innerHTML]="fact.point"></p>
+          </div>
+
             <div style="margin-left:4%;" *ngFor="let points of blog.subTitleFactPoints; let i= index;">
              
                <ol type="1" id="containerIntro" class="list-inline"  >
                 
-              <b>{{ i+1 }}. <li class="list-inline-item" [innerHTML]="points.title">
-              </li> : </b>
-              <p [innerHTML]="points.point"></p>
-              <a *ngIf="points.imgSrc" class="boxout2 progressive replace" style="height: 250px; width: 250px;">
+                <h3 [innerHTML]="points.title"></h3> 
+              
+              <a *ngIf="points.imgSrc && points.floatImage=='right'" class="boxout2 progressive replace" style="max-height: 250px; width: 250px;">
                 <img style="height: 100%; width: 100%;" [src]="points.imgSrc" class="preview" loading="lazy" width="20" height="15" alt="jump" />
               </a>
+              <a *ngIf="points.imgSrc && points.floatImage=='left'" class="boxout3 progressive replace" style="max-height: 250px; width: 250px;">
+                <img style="height: 100%; width: 100%;" [src]="points.imgSrc" class="preview" loading="lazy" width="20" height="15" alt="jump" />
+              </a>
+              <p [innerHTML]="points.point"></p>
             </ol>
-             
+             <br>
               
           </div>
+          <br>
+          <br>
             <!-- blockquote -->
+            <h3 *ngIf="blog.finalNotesHeader" [innerHTML]="blog.finalNotesHeader"></h3>
             <article class="post" style="margin-top:6%">
               <!-- <h4>Final Notes</h4> -->
               <div *ngFor="let note of blog.finalNotes">

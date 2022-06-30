@@ -9,10 +9,8 @@ import { Router } from '@angular/router'
 export class AboutUsComponent implements OnInit {
 
   constructor(private router: Router) { }
-
   ngOnInit(): void {
   }
-
   onNavigate(route:any) {
     window.scrollTo({
       behavior:'smooth',
