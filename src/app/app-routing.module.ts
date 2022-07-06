@@ -13,10 +13,11 @@ import { SeoComponent } from './components/our-services/seo/seo.component';
 import { SmmComponent } from './components/our-services/smm/smm.component';
 import { WebDesignComponent } from './components/our-services/web-design/web-design.component';
 import { YoutubeMarketingComponent } from './components/our-services/youtube-marketing/youtube-marketing.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path: '', component: HomeComponent, data: {title: 'Dope Digital'}
   },
   {
     path: 'services', component: OurServicesComponent, data: {title: 'SERVICES - Dope Digital'}
@@ -54,11 +55,16 @@ const routes: Routes = [
   {
     path: 'blogs/:blog', component: BlogsDescriptionComponent, data: {title: 'BLOGS - Dope Digital'}
   },
+  {
+    path: '**', component: PageNotFoundComponent, data: {title: 'Page Not Found - Dope Digital'}
+  },
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

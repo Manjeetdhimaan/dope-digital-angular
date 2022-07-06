@@ -20,9 +20,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dope-digital-angular",
+            "outputPath": "dist/dope-digital-angular/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "css",
@@ -107,9 +108,71 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/dope-digital-angular/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "css"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "dope-digital-angular:build:development",
+              "serverTarget": "dope-digital-angular:server:development"
+            },
+            "production": {
+              "browserTarget": "dope-digital-angular:build:production",
+              "serverTarget": "dope-digital-angular:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dope-digital-angular:build:production",
+              "serverTarget": "dope-digital-angular:server:production"
+            },
+            "development": {
+              "browserTarget": "dope-digital-angular:build:development",
+              "serverTarget": "dope-digital-angular:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
   },
-  "defaultProject": "dope-digital-angular"
+  "defaultProject": "dope-digital-angular",
+  "cli": {
+    "analytics": false
+  }
 }

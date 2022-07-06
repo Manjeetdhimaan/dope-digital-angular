@@ -44,7 +44,6 @@ export class BlogsDescriptionComponent implements OnInit {
     this.isLoading = true;
     // this.recentPost = this.blogService.getBlogs().slice(-8).reverse();
     this.blogsArray = this.blogService.getBlogs();
-    debugger;
     this.blogService.getBlogs().map((a: any) => {
       if (this.router.url.toLowerCase() == "/blogs/" + a.urlTitle.toLowerCase().split(' ').join('-')) {
         this.router.url.toLowerCase();

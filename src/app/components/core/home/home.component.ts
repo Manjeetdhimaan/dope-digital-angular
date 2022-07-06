@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading= true;
     this.latestBlogs= this.blogService.getBlogs().slice(-3).reverse();
-    setTimeout(() => {
       this.isLoading= false;
-    }, 0);
   }
   customOptionshome: OwlOptions = {
     loop: true,

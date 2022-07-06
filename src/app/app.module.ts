@@ -22,6 +22,7 @@ import { BlogsDescriptionComponent } from './components/blogs-description/blogs-
 import { BlogsHeadlineComponent } from './components/blogs-headline/blogs-headline.component';
 import { SpinnerComponent } from './components/UI-components/spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,10 +41,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactComponent,
     BlogsDescriptionComponent,
     BlogsHeadlineComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    PageNotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule
