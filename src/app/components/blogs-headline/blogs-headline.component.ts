@@ -14,7 +14,7 @@ export class BlogsHeadlineComponent implements OnInit {
 
   latestBlogs:any[];
   ngOnInit(): void {
-    this.latestBlogs= this.blogService.getBlogs().slice(-3).reverse();
+    this.latestBlogs= this.blogService.getBlogs().reverse();
   }
 
   onNavigate(blog:any) {
@@ -23,6 +23,7 @@ export class BlogsHeadlineComponent implements OnInit {
       top:0
     });
     const selectedBlog = blog.urlTitle.toLowerCase().split(' ').join('-');
+    this.blogService.getselectedBlog.next(blog);
     this.router.navigate(['/blogs/', selectedBlog]);
   }
  
